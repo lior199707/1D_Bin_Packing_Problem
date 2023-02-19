@@ -151,6 +151,6 @@ if __name__ == "__main__":
     demand = [10, 20, 5, 12, 8, 30, 20, 18]
     capacity = 6000
     cutStock(weights, demand, capacity)
-    demand = [6, 12, 18, 8, 10, 4, 12, 4, 10, 8]
+    """demand = [6, 12, 18, 8, 10, 4, 12, 4, 10, 8]
     weights = [1304, 978, 843, 702, 661, 504, 440, 319, 230, 175]
-    cutStock(weights, demand, capacity)
+    cutStock(weights, demand, capacity)"""
