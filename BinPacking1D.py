@@ -1,5 +1,15 @@
 
 def howSum(capacity, weights, demand, error, memo={}):
+    """
+    finds a combination of items that fits the demand and fills the bin with the specified capacity and the error allowed
+
+    :param capacity: The capacity the bin can contain
+    :param weights: Array, the weights/lengths of the items
+    :param demand: Array, the demand array representing the amount the customer wants from each item
+    :param error: the percentage of the capacity we allow remaining empty
+    :param memo: memoization dict, {capacity, array of items matching the capacity}
+    :return: None id there isn't a combination of items that can fill the bin, otherwise
+    """
     # if we already discovered a solution for the current capacity
     if capacity in memo: return memo[capacity]
     # if exceeded the capacity
@@ -32,6 +42,16 @@ def howSum(capacity, weights, demand, error, memo={}):
 
 
 def howSumSolution(capacity, weights, demand):
+    """
+    Find a solution that fills the bins with the smallest error possible, the error is the percentage of the capacity
+    that is not in use)
+
+    :param capacity: float, the maximum weight/length of items a container can store
+    :param weights: Array, the weights/lengths of the items
+    :param demand: Array, the demand array representing the amount the customer wants from each item
+    :return: Array, the size of the array is similar to the weights array and the demand array, and the
+             value store in index 'i' is the quantity of item: weights[i] we used to fill the bin.
+    """
     # find a combination that fills the bin completely
     memo = {}
     error = 0
@@ -58,12 +78,19 @@ def howSumSolution(capacity, weights, demand):
     return res
 
 
-"""bin = howSum(capacity, weights, eval(repr(demand)))
-print(demand)
-print(bin)"""
-
-
 def cutStock(weights, demand, capacity):
+    """
+    The main function, solves the 1D bin packing problem ,finds and prints the solution that fills the bins with the
+    items in the demand list, the solution is usually close to optimal.
+    The weights and the demand arrays should be equal in size.
+
+    :param weights: array containing the potential weights/lengths of items a customer can choose from,
+           i.e: [1,2] meaning the customer can only choose items that their weight/length is 1 or 2
+    :param demand: array containing the demand from each item where demand[i] is the number of items
+           the customer wants from the item that his weight/length is weights[i]
+    :param capacity: float, the maximum weight/length of items a container can store
+    :return: None
+    """
     def getTotalWeight(d):
         """
 
@@ -119,10 +146,11 @@ def cutStock(weights, demand, capacity):
     printSolution(bins)
 
 
-weights = [992, 806, 771, 604, 496, 200, 120, 44]
-demand = [10, 20, 5, 12, 8, 30, 20, 18]
-capacity = 6000
-cutStock(weights, demand, capacity)
-demand = [6, 12, 18, 8, 10, 4, 12, 4, 10, 8]
-weights = [1304, 978, 843, 702, 661, 504, 440, 319, 230, 175]
-cutStock(weights, demand, capacity)
+if __name__ == "__main__":
+    weights = [992, 806, 771, 604, 496, 200, 120, 44]
+    demand = [10, 20, 5, 12, 8, 30, 20, 18]
+    capacity = 6000
+    cutStock(weights, demand, capacity)
+    demand = [6, 12, 18, 8, 10, 4, 12, 4, 10, 8]
+    weights = [1304, 978, 843, 702, 661, 504, 440, 319, 230, 175]
+    cutStock(weights, demand, capacity)
