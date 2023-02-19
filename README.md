@@ -33,7 +33,7 @@ The demand array indicates that the customer wants 10 items of weight 992, 20 it
  
  For example, given the above input the output is:
  
- bin number 1: [5, 0, 0, 0, 0, 4, 2, 0], total weight: 6000 ,precentage filled: 100.0% <br>
+bin number 1: [5, 0, 0, 0, 0, 4, 2, 0], total weight: 6000 ,precentage filled: 100.0% <br>
 bin number 2: [5, 0, 0, 0, 0, 4, 2, 0], total weight: 6000 ,precentage filled: 100.0% <br>
 bin number 3: [0, 6, 0, 1, 0, 1, 3, 0], total weight: 6000 ,precentage filled: 100.0% <br>
 bin number 4: [0, 6, 0, 1, 0, 1, 3, 0], total weight: 6000 ,precentage filled: 100.0% <br>
@@ -44,3 +44,23 @@ bin number 8: [0, 0, 0, 0, 6, 12, 3, 6], total weight: 6000 ,precentage filled: 
 bin number 9: [0, 0, 1, 0, 0, 7, 0, 3], total weight: 2303 ,precentage filled: 38.38333333333333% <br>
 total order: [10, 20, 5, 12, 8, 30, 20, 18] <br>
 original demand: [10, 20, 5, 12, 8, 30, 20, 18] <br>
+
+* In every bin array (for example: [5, 0, 0, 0, 0, 4, 2, 0]), the value of bin[i] is the number of the item: weigths[i] stored in the bin.
+
+## Usage
+
+clone or open the project in pycharm <br>
+initialaize the wanted weights array, demand array and bin's capacity <br>
+
+```python
+if __name__ == "__main__":
+    weights = [992, 806, 771, 604, 496, 200, 120, 44]
+    demand = [10, 20, 5, 12, 8, 30, 20, 18]
+    capacity = 6000
+```
+
+run the program or use the cutStock function as follows:
+
+```python
+cutStock(weights, demand, capacity)
+```
